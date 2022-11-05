@@ -170,3 +170,60 @@ li.dropdown {
     color: #545d7a;
   }
   
+ .title{
+    color: white;
+    margin-bottom: 1em;
+    text-align: center;
+    font-size: 2em;
+  }
+  .destination{
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    width: 80%;
+    margin: 0 auto 5em;
+  }
+  
+  .destination .card{
+    margin: 1.3em;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-size: cover;
+    height: 18em;
+    width: 12em;
+    background-repeat: no-repeat;
+    border-radius: 30px;
+    border: 2px solid rgba(0, 0, 0, 0);
+  }
+  .destination .card p{
+    text-align: left;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 100% auto 0;
+    color: white;
+  }
+  .destination .card .loc{
+    color: white;
+    font-size: 1em;
+  }
+  .destination .card .loc td{
+    padding-right: 10px;
+  }
+  
+  .destination .card{
+    background-image: url('asset/desk.jpg');
+  }
+ 
+  
+  .destination .card:hover>p{
+    transform: translate(0, -20%);
+    transition: .5s ease;
+  }
+  .destination .card:hover td{
+    font-weight: bold;
+  }
+  .destination .card:hover{
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+    url('asset/desk.jpg');
+    cursor: pointer;
+  }
