@@ -99,12 +99,14 @@ li.dropdown {
 
 .rekomendasi{
     margin-top: 100px;
+
 }
 
-.rekomendasi h1{
-    margin-bottom: 50px;
+.slider{
+	display: flex;
+	flex-wrap: nowrap;
+	overflow-x: auto;
 }
-
 
   .card {
     margin: 10px;
@@ -169,28 +171,21 @@ li.dropdown {
   .user-info small {
     color: #545d7a;
   }
-  
- .title{
-    color: white;
-    margin-bottom: 1em;
-    text-align: center;
-    font-size: 2em;
-  }
-  .destination{
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    width: 80%;
-    margin: 0 auto 5em;
-  }
+
+
+#popular{
+  display: flex;
+	flex-wrap: nowrap;
+	overflow-x: auto;
+}
   
   .destination .card{
     margin: 1.3em;
     padding-left: 15px;
     padding-right: 15px;
     background-size: cover;
-    height: 18em;
-    width: 12em;
+    height: 25em;
+    width: 16em;
     background-repeat: no-repeat;
     border-radius: 30px;
     border: 2px solid rgba(0, 0, 0, 0);
@@ -213,7 +208,6 @@ li.dropdown {
   .destination .card{
     background-image: url('asset/desk.jpg');
   }
- 
   
   .destination .card:hover>p{
     transform: translate(0, -20%);
