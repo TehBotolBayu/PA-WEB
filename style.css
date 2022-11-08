@@ -2,14 +2,12 @@ body {
     margin: 0;
 }
 
-
 ul {
-    
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: rgb(255, 200, 49);
+    background-color: #00EAD9;
 }
 
 li {
@@ -38,7 +36,7 @@ li.dropdown {
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgb(255, 153, 0);
+    box-shadow: 0px 8px 16px 0px #00c4b0;
     z-index: 1;
 }
 
@@ -56,19 +54,31 @@ li.dropdown {
     display: block;
 }
 
+header{
+  z-index: 100;
+  display:inline;
+  position: sticky;
+  top: 0;
+}
+
 .hero{
     height: 75vh;
-    background-image: linear-gradient(to bottom right, rgb(255, 255, 255) 20%, rgb(255, 251, 0));
+    background-image: linear-gradient(to bottom right, #00C4B0 20%, #138B83, #226B5E);
 }
 
 .slogan a{
     text-decoration: none;
     color: black;
-    
 }
 
 .slogan{
+    float: leftl;
     padding: 25vh 10%;
+}
+
+.hero img{
+  float: right;
+  height: 75vh;
 }
 
 .hero .search-container button {
@@ -88,6 +98,22 @@ li.dropdown {
     padding: 6px;
     font-size: 17px;
     border: none;
+}
+
+.slogan{
+  float: left;
+}
+
+.gbr{
+  float: right;
+  transition: 1.3s;
+  transition: all .75s ease;
+}
+
+.gbr:hover{
+  display: none;
+  transition: 1.3s;
+  transition: all .75s ease;
 }
   
 .com{
@@ -109,7 +135,7 @@ li.dropdown {
 }
 
   .card {
-    margin: 10px;
+    margin: 1.3em;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
@@ -180,6 +206,7 @@ li.dropdown {
 }
   
   .destination .card{
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
     margin: 1.3em;
     padding-left: 15px;
     padding-right: 15px;
@@ -221,3 +248,8 @@ li.dropdown {
     url('asset/desk.jpg');
     cursor: pointer;
   }
+ @media only screen and (max-width: 980px){
+  .gbr{
+    display: none;
+  }
+ }
