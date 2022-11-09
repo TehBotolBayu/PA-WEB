@@ -1,0 +1,257 @@
+:root{
+    --primary: #226B5E;
+    --light: #EEEEEE;
+    --dark: #212121;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Fira sans',sans-serif;
+}
+/* BAGIAN NAVBAR */
+
+h1{
+color: var(--light);
+font-size: 28px;
+font-weight: 900;
+letter-spacing: 2px;
+text-transform: uppercase;
+}
+
+.container{
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background-color: #00C4B0;
+    padding: 16px 32px;
+    border-bottom-right-radius: 14px;
+    border-bottom-left-radius: 14px;
+    border-bottom: #212121;
+}
+
+.tombol{
+    display: block;
+    position: relative;
+    z-index: 1;
+
+    user-select: none;
+
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+}
+
+.tombol span{
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+
+    background-color: var(--light);
+    border-radius: 6px;
+    z-index: 1;
+
+    transform-origin: 0 0;
+
+    transition: 0.4s;
+}
+
+.tombol:hover span:nth-child(2){
+    transform: tranlateX(10px);
+    background-color: var(--primary);
+}
+.tombol.is-active span:nth-child(1){
+    transform: translate(0px, -2px) rotate(45deg);
+}
+.tombol.is-active span:nth-child(2){
+    opacity: 0;
+    transform: translateX(15px);
+}
+.tombol.is-active span:nth-child(3){
+    transform: translate(-3px, 3px) rotate(-45deg);
+}
+.tombol.is-active:hover span{
+    background-color: #00EAD9;
+}
+
+.menu {
+    display: none;
+    flex: 1 1 0%;
+    justify-content: flex-end;
+}
+.menu a{
+    color: #FFF;
+    margin: 0 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.4s;
+    padding: 8px 16px;
+    border-radius: 14px;
+}
+.menu a:hover{
+    background-color: #226B5E;
+}
+
+@media (min-width: 768px){
+    .tombol{
+        display: none;
+    }
+    .menu{
+        display: flex;
+    }
+}
+
+/* BAGIAN HEADER */
+header{
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.header-img{
+    padding-top: 40px;
+    width: 100%;
+    height: 80vh;
+    background-size: cover;
+    background-position: center;
+}
+
+.box{
+    background-color: black;
+}
+.header-title{
+    padding-top: 10px;
+    position: absolute;
+    top: 7rem;
+    left: 3rem;
+    letter-spacing: 3;
+    font-weight: bolder;
+    font-size: 52px;
+    color: white;
+    text-shadow: 4px 2px 0px rgva(0,0,0,0.2);
+}
+
+/* BAGIAN SEARCHBAR */
+.search-wrapper{
+    width: 60%;
+    margin: auto;
+    min-width: 300px;
+    height: 3.5rem;
+    position: relative;
+}
+
+.search-box{
+    width: 100%;
+    position: absolute;
+    background-color: white;
+    box-shadow: rgba(2,11,20,0.2) 0px 5px 15px;
+    top: -45%;
+    height: 100%;
+    width: 100%;
+}
+
+.search-card{
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    padding: 0.5rem;
+}
+
+.search-input{
+    height: 100%;
+    width: 100%;
+    border: none;
+    padding: 0.5rem;
+}
+
+.search-button{
+    width: 200px;
+    background-color: var(--primary);
+    border: none;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+
+/* BAGIAN LIST */
+.job-list{
+    margin: 5%;
+    padding: 1rem;
+    background-color: ;
+}
+
+.job-card{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    margin: 1rem;
+    min-height: 100px;
+    align-items: center;
+    background-color: white;
+    box-shadow: rgba(0,0,0,0.16) 0px 1px 4px;
+}
+
+.job-card:hover{
+    box-shadow: rgba(0,0,0,0.1) 0px 4px 12px;
+}
+
+.job-name{
+    display: flex;
+}
+
+.job-profile{
+    width: 60px;
+    height: 60px;
+    margin: 0.5rem;
+}
+
+.job-detail{
+    color: var(--primary);
+    font-size: 0.9rem;
+}
+
+.job-detail > p {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.job-label {
+    display: flex;
+    flex-wrap:wrap;
+}
+
+.job-label > a{
+    padding: 0.3rem;
+    margin: 0.2rem;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 0.8rem;
+}
+
+.label-a {
+    background-color: rgba(24, 181, 27, 0.552);
+}
+.label-b{
+    background-color: rgb(200, 30, 30);
+}
+.label-c{
+    background-color: rgb(27, 27, 189);
+}
+
