@@ -1,3 +1,21 @@
+<?php
+error_reporting(0);
+session_start();
+$status = $_SESSION['status'];
+$id_akun = $_SESSION['id_akun'];
+require "config.php";
+
+if($status == 'user' || $status == 'admin'){
+  $query = "select * from akun where id=$id_akun";
+  $result = mysqli_query($db, $query);
+  $data = mysqli_fetch_assoc($result);
+
+  $username = $data['username'];
+
+}
+
+?>
+
 <!DOCTYPE html>
 
 <html>
@@ -12,8 +30,8 @@
         <header>
             <ul>
                 <img src="asset/logo.png" width="50px">
-                <li><a href="#home">Find Freelancer</a></li>
-                <li><a href="#news">Discover Job</a></li>
+                <li><a href="freelancerpage.php">Find Freelancer</a></li>
+                <li><a href="offerjobspage.php">Discover Job</a></li>
                 <li class="dropdown">
                     <a href="javascript:void(0)" class="dropbtn">Explore</a>
                     <div class="dropdown-content">
@@ -22,8 +40,19 @@
                     <a href="#">Link 3</a>
                     </div>
                 </li>
-                <li><a href="">Sign In</a></li>
-                <li><a href="">Join</a></li>
+                <?php
+                if($status == 'user' || $status == 'admin'){
+                  echo "<li><a href='profil.php'>$username</a></li>
+                        <li><a href='logout.php'>Log Out</a></li>";
+                } else {
+                  echo "<li><a href='login.php'>Sign In</a></li>
+                        <li><a href='regis.php'>Join</a></li>";
+                }
+                
+                if($status == 'admin'){
+                  echo "<li><a href='admin.php'>Menu Admin </a></li>";
+                }
+                ?>
             </ul>
         </header>
 
@@ -40,118 +69,73 @@
                 
             </div>
 
-            <div class="gbr">
+            <!-- <div class="gbr">
               <img class="mySlides" src="asset/pekerja.png">
               <img class="mySlides" src="asset/pekerja2.png">
-            </div>
+            </div> -->
         </div>
 
         <h1 align="center">Our Partner</h1>
-        <div class="partner">
-          <hr>
-            <marquee>
-                <div class="com"><img src="asset\amazon.png" width="100px"></div>
-                <div class="com"><img src="asset\facebok.png" width="100px"></div>
-                <div class="com"><img src="asset\google.png" width="100px"></div>
-                <div class="com"><img src="asset\ibm.png" width="100px"></div>
-                <div class="com"><img src="asset\netflix.png" width="100px"></div>
-            </marquee>
-        </div>
+          <div class="partner">
+            <hr>
+              <marquee>
+                  <div class="com"><img src="asset\amazon.png" width="100px"></div>
+                  <div class="com"><img src="asset\facebok.png" width="100px"></div>
+                  <div class="com"><img src="asset\google.png" width="100px"></div>
+                  <div class="com"><img src="asset\ibm.png" width="100px"></div>
+                  <div class="com"><img src="asset\netflix.png" width="100px"></div>
+              </marquee>
+          </div>
+
+
         
         <hr>
 
         <main>
         <h1 align="center" class="rekomendasi">Rekomendasi</h1>
-        <div class="slider rekomendasi">
+        <div>
+          <div class="slider rekomendasi">
+              <?php
+             				 $query = "select * from konten";
+                     $result = mysqli_query($db, $query);
+                     $len = 1;
+                     while ($data = mysqli_fetch_assoc($result)) { 
+              ?>
+              <div class="card">
+                  <div class="card-header">
+                    <img src="asset/<?=$data['gambar']?>" alt="rover" />
+                  </div>
+                  <div class="card-body">
+                    <span class="tag tag-teal"><?=$data['kategori']?></span>
+                    <h4>
+                      <?=$data['judul']?>
+                    </h4>
+                    <p>
+                      <?=$data['deskripsi']?>
+                    </p>
+                    <?php
+                    $id_akun = $data['id_akun'];
+                    $query2 = "select * from akun where id='$id_akun'";
+                    $result2 = mysqli_query($db, $query2);
+                    $data2 = mysqli_fetch_assoc($result2);
+                    $query3 = "select * from profil where id_akun='$id_akun'";
+                    $result3 = mysqli_query($db, $query3);
+                    $data3 = mysqli_fetch_assoc($result3);
+                    ?>
+                    <div class="user">
+                      <img src="asset/<?=$data3['foto']?>" alt="user" />
+                      <div class="user-info">
+                        <h5><?=$data2['username']?></h5>
+                        <small>2h ago</small>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <?php
+              }
+              ?>
 
-            <div class="card">
-                <div class="card-header">
-                  <img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="rover" />
-                </div>
-                <div class="card-body">
-                  <span class="tag tag-teal">Technology</span>
-                  <h4>
-                    Why is the Tesla Cybertruck designed the way it
-                    is?
-                  </h4>
-                  <p>
-                    An exploration into the truck's polarising design
-                  </p>
-                  <div class="user">
-                    <img src="https://yt3.ggpht.com/a/AGF-l7-0J1G0Ue0mcZMw-99kMeVuBmRxiPjyvIYONg=s900-c-k-c0xffffffff-no-rj-mo" alt="user" />
-                    <div class="user-info">
-                      <h5>July Dec</h5>
-                      <small>2h ago</small>
-                    </div>
-                  </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header">
-                  <img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="rover" />
-                </div>
-                <div class="card-body">
-                  <span class="tag tag-teal">Technology</span>
-                  <h4>
-                    Why is the Tesla Cybertruck designed the way it
-                    is?
-                  </h4>
-                  <p>
-                    An exploration into the truck's polarising design
-                  </p>
-                  <div class="user">
-                    <img src="https://yt3.ggpht.com/a/AGF-l7-0J1G0Ue0mcZMw-99kMeVuBmRxiPjyvIYONg=s900-c-k-c0xffffffff-no-rj-mo" alt="user" />
-                    <div class="user-info">
-                      <h5>July Dec</h5>
-                      <small>2h ago</small>
-                    </div>
-                  </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header">
-                  <img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="rover" />
-                </div>
-                <div class="card-body">
-                  <span class="tag tag-teal">Technology</span>
-                  <h4>
-                    Why is the Tesla Cybertruck designed the way it
-                    is?
-                  </h4>
-                  <p>
-                    An exploration into the truck's polarising design
-                  </p>
-                  <div class="user">
-                    <img src="https://yt3.ggpht.com/a/AGF-l7-0J1G0Ue0mcZMw-99kMeVuBmRxiPjyvIYONg=s900-c-k-c0xffffffff-no-rj-mo" alt="user" />
-                    <div class="user-info">
-                      <h5>July Dec</h5>
-                      <small>2h ago</small>
-                    </div>
-                  </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header">
-                  <img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="rover" />
-                </div>
-                <div class="card-body">
-                  <span class="tag tag-teal">Technology</span>
-                  <h4>
-                    Why is the Tesla Cybertruck designed the way it
-                    is?
-                  </h4>
-                  <p>
-                    An exploration into the truck's polarising design
-                  </p>
-                  <div class="user">
-                    <img src="https://yt3.ggpht.com/a/AGF-l7-0J1G0Ue0mcZMw-99kMeVuBmRxiPjyvIYONg=s900-c-k-c0xffffffff-no-rj-mo" alt="user" />
-                    <div class="user-info">
-                      <h5>July Dec</h5>
-                      <small>2h ago</small>
-                    </div>
-                  </div>
-                </div>
-            </div>
+          </div>
         </div>
         <hr color="">
         <h1 align="center">Popular</h1>
@@ -205,78 +189,311 @@
         </div>
 
         <div id="why">
-            <h1>Kenapa Anda Harus Menggunakan Layanan Kami?</h1>
-            <div class="poin">1. Lorem</div>
-            <div class="poin">2. Ipsum</div>
-            <div class="poin">3. Lorem</div>
-            <div class="gambar"></div>
+        <h1 class="why-title">Kenapa Anda Harus Menggunakan Layanan Kami?</h1></th>
+        <table>
+            <tr >
+                <td class="box1"> 
+                    <h1>1. Lorem, ipsum dolor.</h1> 
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum quisquam ratione, mollitia ullam placeat iste.</p>            
+                </td>
+                <td class="box2"> 
+                    <h1>2. Lorem, ipsum dolor.</h1> 
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum quisquam ratione, mollitia ullam placeat iste.</p>                         
+                </td>
+                <td class="box-gambar" rowspan="2"> <img src="asset/why1.png" alt="" height="500px" width="700px">       
+                </td>
+            </tr>
+            <tr>
+                <td class="box3">
+                    <h1>3. Lorem, ipsum dolor.</h1> 
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum quisquam ratione, mollitia ullam placeat iste.</p>                         
+                </td>
+                <td class="box4">
+                    <h1>4. Lorem, ipsum dolor.</h1> 
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum quisquam ratione, mollitia ullam placeat iste.</p>                          
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- ------------------------------------------------------------------------------------------------------------------------ --
+    HOW -->
+        <div class="tengah">
+            <div class="kolom">
+                <br><br>
+                <h2>Cara Menemukan Pekerjaan </h2>
+                <p>Untuk mendapatkan pekerjaan di website kami sangatlah mudah dengan cara berikut: </p><br>
+            </div>
+
+            <div class="tutor-list">
+                <div class="kartu-tutor">
+                    <div class="container">
+                        <img src="asset/buatakun2.jpeg" width="200px" height="200px" />
+                        <div class="title">Pembuatan Akun</div>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi at mollitia laborum reiciendis itaque sint exercitationem expedita ipsam assumenda amet.</p>
+                </div>
+
+                <div class="kartu-tutor">
+                    <div class="container">
+                        <img src="asset/tawaran1.jpeg" width="200px" height="200px" />
+                        <div class="title">Buat Tawaran</div>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi at mollitia laborum reiciendis itaque sint exercitationem expedita ipsam assumenda amet.</p>
+                </div>
+
+                <div class="kartu-tutor">
+                    <div class="container">
+                        <img src="asset/transaksi1.jpg" width="200px" height="200px" />
+                        <div class="title">Buat Transaksi</div>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ex ut nostrum magnam quam numquam quidem quia tempora nisi. Odio?</p>
+                </div>
+
+                <div class="kartu-tutor">
+                    <div class="container">
+                        <img src="asset/dapatuang1.png" width="200px" height="200px" />
+                        <div class="title">Dapat Uang</div>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores libero architecto nobis vero, doloribus nostrum quisquam est illum! Deleniti, officia.</p><br><br><br>
+                </div>
+            </div>
+        </div>
+        <!-- ----------------------------------------------------------------------------------------------------------------------------------------- -->
+
+        <div id="find">
+            <div class="Judul">
+                <br><br>
+                <h2>Jelajahi Marketplace</h2><br><br><br>
+            </div>
+            
+            <div class="logo-list">
+                <div class="logo-find">
+                    <div class="logo-find-container">
+                        <img src="asset/logo-find6.png"/>
+                        <div class="logo-find-text">Design Graphic</div>
+                    </div>
+                </div>
+
+                <div class="logo-find">
+                    <div class="logo-find-container">
+                        <img src="asset/logo-find2.png"/>
+                        <div class="logo-find-text">Web Development</div>
+                    </div>
+                </div>
+                
+                <div class="logo-find">
+                    <div class="logo-find-container">
+                        <img src="asset/logo-find3.png"/>
+                        <div class="logo-find-text">Video Editing</div>
+                    </div>
+                </div>
+
+                <div class="logo-find">
+                    <div class="logo-find-container">
+                        <img src="asset/logo-find4.png"/>
+                        <div class="logo-find-text">Game Development</div>
+                    </div>
+                </div>
+        
+                <div class="logo-find">
+                    <div class="logo-find-container">
+                        <img src="asset/logo-find5.png"/>
+                        <div class="logo-find-text">Music Writing</div>
+                    </div>
+                </div>
+
+            </div> <br><br><br><br><br><br><br>
+
         </div>
 
-        <div id="guide">
-            <h1>Cara Menemukan Pekerjaan</h1>
-            <div class="poin">1. Buat Akun</div>
-            <div class="poin">2. Buat Tawaran</div>
-            <div class="poin">3. Buat Transaksi</div>
-            <div class="poin">4. Dapat Duit</div>
-        </div>
 
-        <div id="discover">
-            <h1>Jelajahi Marketplace Kami</h1>
-            <a class="kategori">Design Graphic</a>
-            <a class="kategori">Web Development</a>
-            <a class="kategori">Video Editing</a>
-            <a class="kategori">Game Development</a>
-            <a class="kategori">Music</a>
-            <a class="kategori">Writing</a>
-        </div>
 
-        <div id="discover">
-            <h1>Get Inspired</h1>
-            <a class="kategori">Design Graphic</a>
-            <a class="kategori">Web Development</a>
-            <a class="kategori">Video Editing</a>
-            <a class="kategori">Game Development</a>
-            <a class="kategori">Music</a>
-            <a class="kategori">Writing</a>
-        </div>
-
-        <div id="discover">
-            <h1>Artikel</h1>
-            <a class="kategori">Design Graphic</a>
-            <a class="kategori">Web Development</a>
-            <a class="kategori">Video Editing</a>
-            <a class="kategori">Game Development</a>
-            <a class="kategori">Music</a>
-            <a class="kategori">Writing</a>
-        </div>
+        <article id="News">
+          <section class="newsintro">
+            <br><br>
+            <h1 align="center">Temukan Ide Baru</h1>
+            <br><br>
+          </section>
+          
+          <div class="slideshow-container" id="news">
+    
+        
+    
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+            <a class="next" onclick="plusSlides(1)">❯</a>
+    
+    
+            <?php
+            $query = " select * from artikel ";
+            $result = mysqli_query($db, $query);
+            $len = 1;
+            while ($data = mysqli_fetch_assoc($result)) {
+            ?>
+        
+    
+                <a class="mySlides fade" href=artikel.php?id=<?php echo $data['id']; ?>>
+                <div class="numbertext"><?php echo $data['tanggal']; ?></div>
+                <img src="asset/<?php echo $data['gambar']; ?>" style="width:100%">
+                <div class="text"><?php echo $data['judul']; ?></div>
+                </a>
+            <?php
+            $len += 1;
+            }		
+            ?>		
+            </div>
+            <br>
+            
+            <div style="text-align:center" id="dots">
+            <?php
+              $i = 1;
+              while($i < $len){
+            ?>
+              <span class="dot" onclick="currentSlide(<?=$i?>)"></span>
+            <?php
+              $i += 1;
+            }
+            ?>
+            </div>
+        <!-- <h1 align="center">Get Inspired</h1>
+        <div class="w3-content w3-display-container" style="max-width:800px">
+          <img class="carousel" src="asset\desk.jpg">
+          <h1>judul berita</h1>
+          <img class="carousel" src="asset\google.png">
+          <img class="carousel" src="asset\pekerja.png">
+          <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">
+            <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
+            <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
+            <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
+            <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
+            <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
+          </div>
+          
+        </div> -->
+        <!-- <h1 align="center">Artikel</h1>
+        <div class="w3-content w3-display-container" style="max-width:800px">
+          <img class="carousel2" src="asset\desk.jpg">
+          <img class="carousel2" src="asset\google.png">
+          <img class="carousel2" src="asset\pekerja.png">
+          <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">
+            <div class="w3-left w3-hover-text-khaki" onclick="plusDivs2(-1)">&#10094;</div>
+            <div class="w3-right w3-hover-text-khaki" onclick="plusDivs2(1)">&#10095;</div>
+            <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv2(1)"></span>
+            <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv2(2)"></span>
+            <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv2(3)"></span>
+          </div>
+        </div>        -->
 
         </main>
-
-        <footer>
+        <hr>
+        <footer class='bawah'>
             <a>Kategori</a>
             <a>Tentang Kami</a>
             <a>Support</a>
             <a>Komunitass</a>
+            <hr>
             <p>Copyright Kelompok 255ba9s PA WEB Informatika 2021</p>
         </footer>
 
 
     </body>
     <script>
-      var myIndex = 0;
-      carousel();
+      // var myIndex = 0;
+      // carousel();
 
-      function carousel() {
-        var i;
-        var x = document.getElementsByClassName("mySlides");
-        for (i = 0; i < x.length; i++) {
-          x[i].style.display = "none";  
-        }
-        myIndex++;
-        if (myIndex > x.length) {myIndex = 1}    
-        x[myIndex-1].style.display = "block";  
-        setTimeout(carousel, 1000);    
-      }
+      // function carousel() {
+      //   var i;
+      //   var x = document.getElementsByClassName("mySlides");
+      //   for (i = 0; i < x.length; i++) {
+      //     x[i].style.display = "none";  
+      //   }
+      //   myIndex++;
+      //   if (myIndex > x.length) {myIndex = 1}    
+      //   x[myIndex-1].style.display = "block";  
+      //   setTimeout(carousel, 1000);    
+      // }
+
+
+      // var slideIndex = 1;
+      // showDivs(slideIndex);
+      // function plusDivs(n) {
+      //   showDivs(slideIndex += n);
+      // }
+      // function currentDiv(n) {
+      //   showDivs(slideIndex = n);
+      // }
+      // function showDivs(n) {
+      //   var i;
+      //   var x = document.getElementsByClassName("carousel");
+      //   var dots = document.getElementsByClassName("demo");
+      //   if (n > x.length) {slideIndex = 1}
+      //   if (n < 1) {slideIndex = x.length}
+      //   for (i = 0; i < x.length; i++) {
+      //     x[i].style.display = "none";  
+      //   }
+      //   for (i = 0; i < dots.length; i++) {
+      //     dots[i].className = dots[i].className.replace(" w3-white", "");
+      //   }
+      //   x[slideIndex-1].style.display = "block";  
+      //   dots[slideIndex-1].className += "w3-white";
+      // }
+
+
+      // var slideIndex2 = 1;
+      // showDivs2(slideIndex2);
+      // function plusDivs2(n) {
+      //   showDivs2(slideIndex2 += n);
+      // }
+      // function currentDiv2(n) {
+      //   showDivs2(slideIndex2 = n);
+      // }
+      // function showDivs2(n) {
+      //   var i2;
+      //   var x2 = document.getElementsByClassName("carousel2");
+      //   var dots2 = document.getElementsByClassName("demo");
+      //   if (n > x2.length) {slideIndex2 = 1}
+      //   if (n < 1) {slideIndex2 = x2.length}
+      //   for (i = 0; i < x2.length; i++) {
+      //     x2[i].style.display = "none";  
+      //   }
+      //   for (i = 0; i < dots2.length; i++) {
+      //     dots2[i].className = dots2[i].className.replace(" w3-white", "");
+      //   }
+      //   x2[slideIndex2-1].style.display = "block";  
+      //   dots2[slideIndex2-1].className += " w3-white";
+      // }
+
+      
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+
+
+
+
     </script>
   
 
