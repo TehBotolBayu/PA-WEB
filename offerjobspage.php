@@ -1,3 +1,24 @@
+<?php
+error_reporting(0);
+session_start();
+$status = $_SESSION['status'];
+$id_akun = $_SESSION['id_akun'];
+require "config.php";
+
+if($status == 'user' || $status == 'admin'){
+  $query = "select * from akun where id=$id_akun";
+  $result = mysqli_query($db, $query);
+  $data = mysqli_fetch_assoc($result);
+  
+  $username = $data['username'];
+}
+
+if (isset($_POST['submit'])){
+    $cari = $_POST['cari'];
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,9 +38,9 @@
             <h1>WorkPedia</h1>
 
             <div class="menu">
-                <a href="index.html" class="">Home</a>
-                <a href="offer.php"  class="">Offer</a>
-                <a href="hire.php"   class="">Hire</a>
+                <a href="index.php" class="">Home</a>
+                <a href="formapply.php" jclass="">Buat Layanan</a>
+                <a href="formhire.php" class="">Buat Permintaan</a>
                 <a href="logout.php" class="">Logout</a>
             </div>
 
@@ -34,8 +55,8 @@
 
     <!-- HEADER -->
     <header>
-        <div class="box"></div>
-            <img src="../asset/backgroundjobs4.png" class="header-img" alt="">
+        <div class="box">
+            <img src="asset/backgroundjobspage.png" class="header-img" alt="">
         </div>
         <h1 class="header-title">
             Find Your <br> Jobs Easily
@@ -46,89 +67,52 @@
     <div class="search-wrapper">
         <div class="search-box">
             <div class="search-card">
-                <input class="search-input" type="text" placeholder="Search Your Jobs">
-                <button class="search-button">Search</button>
+                <form action="" method="post">
+                    <input class="search-input" name="cari" type="text" placeholder="Search Your Jobs">
+                    <button class="search-button" name="submit">Search</button>
+                </form>
             </div>
         </div>
     </div>
 
     <h3>
-        <a class="link" href="freelancerpage.php">Jobs List</a>
+        <div class="link">Daftar Permintaan</a>
     </h3>
     
     <!-- JOBS LIST -->
     <section class="job-list" id="jobs">
-        <a href="#">
-            <div class="job-card">
-                <div class="job-name">
-                    <img class="job-profile" src="../asset/joki.png" alt="">
-                    <div class="job-detail">
-                        <h4>Game</h4>
-                        <h3>Games Joki </h3>
-                        <p>Lorem Ipsum ini detail pengertian pekerjaan</p>
-                    </div>
-                </div>
-                <div class="job-label">
-                    <a class="label-a" >Mobile Legends</a>
-                    <a class="label-b" >Point Blank</a>
-                    <a class="label-c" >Dota 2</a>
-                </div>
-            </div>
-        </a>
+        <?php
+        $query = "select * from konten where tipe='t' and judul like '%$cari%'";
+        $result = mysqli_query($db, $query);
+        $len = 0;
+        while ($data = mysqli_fetch_assoc($result)) {
 
+        ?>     
         <a href="#">
             <div class="job-card">
                 <div class="job-name">
-                    <img class="job-profile" src="../asset/web.png" alt="">
+                    <img class="job-profile" src="asset/<?=$data['gambar']?>" alt="">
                     <div class="job-detail">
-                        <h4>Web.me</h4>
-                        <h3>Web Profile</h3>
-                        <p>Lorem Ipsum ini detail pengertian pekerjaan</p>
+                        <h4><?=$data['kategori']?></h4>
+                        <h3><?=$data['judul']?></h3>
+                        <p><?=$data['deskripsi']?></p>
                     </div>
                 </div>
                 <div class="job-label">
-                    <a class="label-a" >HTML & CSS</a>
-                    <a class="label-b" >Javascript</a>
-                    <a class="label-c" >PHP</a>
+                    <a class="label-c" ><?=$data['skill']?></a>
+                    <a class="label-a" >Rp.<?=$data['harga']?></a>
                 </div>
             </div>
         </a>
+        <?php
+		$len += 1;
+		}
+        if($len == 0){
+            echo "<p>Tidak ada data</p>";
+        }
+		?>
 
-        <a href="#">
-            <div class="job-card">
-                <div class="job-name">
-                    <img class="job-profile" src="../asset/canva.png" alt="">
-                    <div class="job-detail">
-                        <h4>Digital Poster</h4>
-                        <h3>UI UX Designer</h3>
-                        <p>Lorem Ipsum ini detail pengertian pekerjaan</p>
-                    </div>
-                </div>
-                <div class="job-label">
-                    <a class="label-a" >Canva</a>
-                    <a class="label-b" >Adobe Illustrator</a>
-                    <a class="label-c" >Photosop</a>
-                </div>
-            </div>
-        </a>
-        
-        <a href="#">
-            <div class="job-card">
-                <div class="job-name">
-                    <img class="job-profile" src="../asset/tiktok.png" alt="">
-                    <div class="job-detail">
-                        <h4>Business Application</h4>
-                        <h3>Digital Marketing</h3>
-                        <p>Lorem Ipsum ini detail pengertian pekerjaan</p>
-                    </div>
-                </div>
-                <div class="job-label">
-                    <a class="label-a" >Dart</a>
-                    <a class="label-b" >Flutter</a>
-                    <a class="label-c" >Kotlin</a>
-                </div>
-            </div>
-        </a>
+ 
     </section>
     
     <script src="offerjobspage.js"></script>

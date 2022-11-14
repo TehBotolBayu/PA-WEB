@@ -1,3 +1,35 @@
+<?php
+session_start();
+$_SESSION['tipe'] = 'null';
+error_reporting(E_ERROR);
+
+require 'config.php';
+
+if(isset($_POST['submit'])){
+
+	$acc = $_POST['usernameemail'];
+    $password = $_POST['password'];
+	
+	$res = mysqli_query($db, "SELECT * FROM akun WHERE email='$acc' or username='$acc'");
+	$data = mysqli_fetch_assoc($res);
+    
+	
+	if(password_verify($password, $data['password'])){
+        $_SESSION['status'] = $data['status'];
+        $_SESSION['id_akun'] = $data['id'];
+
+		header('Location: index.php');
+	}
+	else{
+		echo "<script>
+			alert('Maaf, password salah!');
+		</script>";
+		
+	}
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +54,7 @@
                     <div class="login_field>
                         <i class="login__icon fas fa-user"></i>
                         <label for="usernamemail">Email or Username : </label>
-                        <input type="text" class="login__input" name="usernamemail" id="usernamemail" required value="" placeholder="Email or Username"> <br>
+                        <input type="text" class="login__input" name="usernameemail" id="usernamemail" required value="" placeholder="Email or Username"> <br>
                     </div>
 
                     <div class="login_field>
@@ -39,7 +71,7 @@
                 </form>
 
                 <br>
-                <h5>Don't Have an Account? <a href="regis.php"> <span class="h5">Registration</span></a></h5>
+                <h5>Belum punya akun? <a href="regis.php"> <span class="h5">Registrasi</span></a></h5>
 
             </div>
             <div class="screen__background">

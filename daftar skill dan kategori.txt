@@ -1,0 +1,49 @@
+	IT
+CISCO
+CI/CD
+DevOps
+Mikrotik
+Azure
+AWS
+	WEB DEVELOPMENT
+html
+javascript
+css
+php
+node.js
+react.js
+.NET
+	APP DEVELOPMENT
+react native
+Dart
+Kotlin
+	
+C++
+Java
+Unity
+
+	WRITING
+Wordpress
+CopyWriting
+Translator
+Advertisement
+Business Plan
+
+	GRAPHIC DESIGN
+2D animation
+3D Design
+Logo Design
+Poster Design
+Illustrator
+Game Art
+
+	VIDEO EDITING
+Adobe illustrator
+Adobe photoshop
+Adobe
+Premiere Pro
+	GAME DEVELOPMENT
+Lua
+Unreal
+	MUSIC
+Flask

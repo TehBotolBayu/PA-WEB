@@ -1,0 +1,56 @@
+.tabel{
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    margin-left: 5%;
+    margin-top: 10px;
+}
+table{
+    width: 95%;
+}
+#theader{
+    color: white;
+    background: #00c4b0;
+}
+#urldata{
+    overflow-x: scroll;
+}
+.buttondata {
+    background-color: #00c4b0;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 10%;
+    cursor: pointer;
+}
+.buttondata:hover{
+    cursor: pointer;
+    background-color: #00c4b0;
+}
+.U{
+    margin: 0 auto;
+    padding: 0;
+    display: block;
+    width: 50px;
+}
+.D{
+    margin: 2px auto;
+    padding: 0;
+    display: block;
+    width: 50px;
+}
+.datarow:hover{
+    background: rgb(226, 226, 226);;
+}
+.tabletitle{
+    margin-top: 50px;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+}
+
+

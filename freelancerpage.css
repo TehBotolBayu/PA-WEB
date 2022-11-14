@@ -38,7 +38,7 @@ nav{
     padding: 16px 32px;
     border-bottom-right-radius: 14px;
     border-bottom-left-radius: 14px;
-    border-bottom: #212121;
+   
 }
 
 .tombol{
@@ -130,9 +130,7 @@ header{
     background-position: center;
 }
 
-.box{
-    background-color: black;
-}
+
 .header-title{
     padding-top: 10px;
     position: absolute;
@@ -255,3 +253,7 @@ header{
     background-color: rgb(27, 27, 189);
 }
 
+.link{
+    text-align: center;
+    margin-top: 50px;
+}

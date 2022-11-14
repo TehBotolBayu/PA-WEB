@@ -1,40 +1,18 @@
 <?php
 session_start();
-if($_SESSION['status'] == NULL){
-    header('Location: offerjobspage.php');
-}
+
 require "config.php";
 
 
 if (isset($_POST['submit'])) {
-
-    $skill = $_POST['skill'];
-    $skill_new =  implode(", ",$skill);
-
-    $kategori = $_POST['kategori'];
-    $kategori_new =  implode(", ",$kategori);
-
-    $judul = $_POST["judul"];
-    $harga = $_POST["harga"];
-    $deskripsi = $_POST["deskripsi"];
-    $tanggal = date("Y-m-d");
-    $id_akun = $_SESSION['id_akun'];
-
-    $filename = $_FILES["fileToUpload"]["name"];
-    $tempname = $_FILES["fileToUpload"]["tmp_name"];
-    $folder = "./asset/" . $filename;
- 
-    $sql = "INSERT INTO konten (judul, deskripsi, skill, kategori, harga, tanggal, tipe, gambar, id_akun) VALUES ('$judul', '$deskripsi', '$skill_new', '$kategori_new', '$harga', '$tanggal', 'l', '$filename', '$id_akun')";
-    
-    mysqli_query($db, $sql);
-    if (move_uploaded_file($tempname, $folder)) {
-      echo "<script>alert('Data uploaded successfully!')</script></h3>";      
-    }else {
-        echo "<script>alert('Failed to upload data!')</script>";
-    }
-    header('Location: offerjobspage.php');
+    $name = $_POST['skill'];
+    $n =  implode(", ",$name);
+    echo $n;
 }
+
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

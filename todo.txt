@@ -1,0 +1,19 @@
+transaksi, tempat review hasil transakasi
+buat sidebar untuk menu admin
+sidebar pada media query
+	drop down menu di form kategori dan skill
+daftar layanan yang disediakan penguna
+edit dan hapus layanan yang dibuat
+laman detail laman pencarian
+
+#c3fffb,
+
+00ead9
+
+#00c4b0
+
+138b83
+
+226b5e
+
+#0e6862;

@@ -43,7 +43,7 @@ if($status == 'user' || $status == 'admin'){
   <header>
             <ul>
                 <img src="asset/logo.png" width="50px">
-                <li><a href="transaksi.php">Transaksi</a></li>
+                <li><a href="history.php">Transaksi</a></li>
                 <li><a href="freelancerpage.php">Find Freelancer</a></li>
                 <li><a href="offerjobspage.php">Discover Job</a></li>
                 <li><a href="index.php">Beranda</a></li>
@@ -108,45 +108,36 @@ if($status == 'user' || $status == 'admin'){
                           </div>
                           <div class="data">
                             <h4>Bergabung sejak</h4>
-                              <p>tanggal bikin akun cuy</p>
+                              <p><?=$datap['tanggal']?></p>
                         </div>
                       </div>
                   </div>
                 
-                  <div class="projects">
-                    <h3></h3>
-                    <div class="projects_data">
-                        <div class="data">
-                            <h4>Bahasa</h4>
-                            <p>- Rill indo</p>
-                            <p>- bahasa alien</p>
-                            <p>- bahasa british</p>
-                        </div>
-                        <div class="data">
-                          <h4>Motto</h4>
-                            <p>Jika baikmu disepelekan, maju dan hancurkan, maju ketika benar diam ketika salah</p>
-                      </div>
-                    </div>
-                </div>
+
               
                 <div class="projects">
                   <h3>Pengalaman</h3>
                   <div class="projects_data">
                       <div class="data">
-                          <h4>Pekerjaan yang telah diambil :</h4>
-                          <p> - lorem ipsum</p>
-                          <p> - lorem ipsum</p>
-                          <p> - lorem ipsum</p>
-                          <p> - lorem ipsum</p>
-                          <p> - lorem ipsum</p>
+                          <h4>Daftar Layanan:</h4>
+                          <?php
+                          $query = "SELECT * FROM konten WHERE id_akun = '$id_akun' AND tipe = 'l'";
+                          $resk = mysqli_query($db, $query);
+                          $n = 0;
+                          while($datak = mysqli_fetch_assoc($resk)){
+                          ?>
+                            <a href="">
+                              <p align="left">- <?=$datak['judul'];?></p>
+                            </a>
+                          <?php
+                          $n += 1;
+                          }
+                          ?>
+                          <a href="layanan.php?id=<?=$id_akun;?>" style="color: black;"><p>Lebih lanjut...</p></a>
                       </div>
                       <div class="data">
                         <h4>Latar belakang pendidikan</h4>
-                        <p> - lorem ipsum</p>
-                        <p> - lorem ipsum</p>
-                        <p> - lorem ipsum</p>
-                        <p> - lorem ipsum</p>
-                        <p> - lorem ipsum</p>
+                        <p><?=$datap['pendidikan']?></p>
                     </div>
                   </div>
               </div>
@@ -156,20 +147,13 @@ if($status == 'user' || $status == 'admin'){
                       <div class="projects_data">
                           <div class="data">
                               <h4>Keahlian</h4>
-                              <p> - lorem ipsum</p>
-                              <p> - lorem ipsum</p>
-                              <p> - lorem ipsum</p>
-                              <p> - lorem ipsum</p>
-                              <p> - lorem ipsum</p><br><br><br>
+                              <p><?=$datap['skill']?></p>
+                              <br><br><br>
                     
                           </div>
                           <div class="data">
                             <h4>Sertifikat</h4>
-                              <p> - lorem ipsum</p>
-                              <p> - lorem ipsum</p>
-                              <p> - lorem ipsum</p>
-                              <p> - lorem ipsum</p>
-                              <p> - lorem ipsum</p>
+                              <p><?=$datap['sertifikat']?></p>
                         </div>
                       </div>
                   </div>
