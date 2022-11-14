@@ -1,10 +1,10 @@
-transaksi, tempat review hasil transakasi
-buat sidebar untuk menu admin
+	transaksi, tempat review hasil transakasi
 sidebar pada media query
 	drop down menu di form kategori dan skill
-daftar layanan yang disediakan penguna
+	*daftar layanan yang disediakan penguna tinggal edit
 edit dan hapus layanan yang dibuat
-laman detail laman pencarian
+	laman detail laman pencarian
+// buat sidebar untuk menu admin
 
 #c3fffb,
 

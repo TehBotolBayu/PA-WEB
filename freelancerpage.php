@@ -87,7 +87,7 @@ if (isset($_POST['submit'])){
         $len = 1;
         while ($data = mysqli_fetch_assoc($result)) {
         ?>
-        <a href="#">
+        <a href="desc.php?id=<?=$data['id']?>">
             <div class="job-card">
                 <div class="job-name">
 

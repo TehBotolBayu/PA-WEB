@@ -49,7 +49,6 @@ if($status == 'user' || $status == 'admin'){
                   echo "<li><a href='login.php'>Sign In</a></li>
                         <li><a href='regis.php'>Join</a></li>";
                 }
-                
                 if($status == 'admin'){
                   echo "<li><a href='admin.php'>Menu Admin </a></li>";
                 }
@@ -62,7 +61,7 @@ if($status == 'user' || $status == 'admin'){
                 <h1>WorkPedia</h1>
                 <h1>Ini Adalah Sebuah Slogan</h1>
                 <div class="search-container">
-                    <form action="freelancerpage.php" method="POST">
+                    <form action="cari.php" method="POST">
                       <input type="text" placeholder="Cari Freelancer" name="cari">
                       <button type="submit" name="submit"><i class="fa fa-search"></i></button>
                     </form>
@@ -329,7 +328,7 @@ if($status == 'user' || $status == 'admin'){
             ?>
         
     
-                <a class="mySlides fade" href=artikel.php?id=<?php echo $data['id']; ?>>
+                <a class="mySlides fade" href=artikel2.php?id=<?php echo $data['id']; ?>>
                 <div class="numbertext"><?php echo $data['tanggal']; ?></div>
                 <img src="asset/<?php echo $data['gambar']; ?>" style="width:100%">
                 <div class="text"><?php echo $data['judul']; ?></div>

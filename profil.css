@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
 
-
 *{
   margin: 0;
   padding: 0;
@@ -163,25 +162,18 @@ body{
   color: #919aa3;
 }
 
-.wrapper .social-media ul{
-  display: flex;
-  justify-content: flex-start;
-}
-
-.wrapper .social-media ul li{
-  width: 45px;
-  height: 45px;
+.social-media{
+  width: 100px;
   background: linear-gradient(to right,#01a9ac,#01dbdf);
-  margin-right: 10px;
-  border-radius: 5px;
-  text-align: center;
-  line-height: 45px;
+  color: white;
+  border-radius: 20px;
 }
 
-.wrapper .social-media ul li a{
-  color :#353c4e;
-  display: block;
-  font-size: 18px;
+.social-media1{
+  width: 100px;
+  background: linear-gradient(to right,#18d8db,#62fcff);
+  color: white;
+  border-radius: 20px;
 }
 
 .profile-pict a, .dropbtn {
@@ -199,4 +191,12 @@ body{
 
 .profile-pict{
   margin: 100px;
+}
+
+.social-media a{
+  color: white !important;
+}
+
+.social-media:hover, .social-media1:hover{
+  background: linear-gradient(to right,#016466,#029b9e);
 }

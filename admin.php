@@ -67,7 +67,7 @@ if($status == 'admin'){
 					<td><?=$data['username']; ?></td>
 					<td><?=$data['status']; ?></td>
 					<td>
-						<a href="edit.php?id=<?=$data['id']?>&table=<?='akun'?>" class="buttondata U">Edit</a>
+						<a href="formakun.php?id=<?=$data['id']?>&table=<?='akun'?>" class="buttondata U">Edit</a>
 						<a href="delete.php?id=<?=$data['id']?>&table=<?='akun'?>" class="buttondata U">Delete</a>
 					</td>
 				</tr>
@@ -117,7 +117,6 @@ if($status == 'admin'){
 					<td><?=$data['harga']; ?></td>
 					<td><?=$data['tanggal']; ?></td>
 					<td>
-						<a href="edit.php?id=<?=$data['id']?>&table=<?='konten'?>" class="buttondata U">Edit</a>
 						<a href="delete.php?id=<?=$data['id']?>&table=<?='konten'?>" class="buttondata U">Delete</a>
 					</td>
 				</tr>
@@ -167,7 +166,6 @@ if($status == 'admin'){
 					<td><?=$data['harga']; ?></td>
 					<td><?=$data['tanggal']; ?></td>
 					<td>
-						<a href="edit.php?id=<?=$data['id']?>&table=<?='konten'?>" class="buttondata U">Edit</a>
 						<a href="delete.php?id=<?=$data['id']?>&table=<?='konten'?>" class="buttondata U">Delete</a>
 					</td>
 				</tr>
@@ -196,9 +194,6 @@ if($status == 'admin'){
 					<th>
 						Harga
 					</th>
-					<th>
-						Option
-					</th>
 				</tr>
 				<?php
 				$query = "select * from transaksi";
@@ -212,10 +207,6 @@ if($status == 'admin'){
 					<td><?=$data['deskripsi']; ?></td>
 					<td><?=$data['status']; ?></td>
 					<td><?=$data['harga']; ?></td>
-					<td>
-						<a href="edit.php?id=<?=$data['id']?>&table=<?='transaksi'?>" class="buttondata U">Edit</a>
-						<a href="delete.php?id=<?=$data['id']?>&table=<?='transaksi'?>" class="buttondata U">Delete</a>
-					</td>
 				</tr>
 				<?php
 				$len += 1;
@@ -255,7 +246,7 @@ if($status == 'admin'){
 					<td><?=$data['gambar']; ?></td>
 					<td><?=$data['tanggal']; ?></td>
 					<td>
-						<a href="edit.php?id=<?=$data['id']?>&table=<?='artikel'?>" class="buttondata U">Edit</a>
+						<a href="formartikel.php?id=<?=$data['id']?>&table=<?='artikel'?>" class="buttondata U">Edit</a>
 						<a href="delete.php?id=<?=$data['id']?>&table=<?='artikel'?>" class="buttondata U">Delete</a>
 					</td>
 				</tr>

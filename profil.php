@@ -111,9 +111,7 @@ if($status == 'user' || $status == 'admin'){
                               <p><?=$datap['tanggal']?></p>
                         </div>
                       </div>
-                  </div>
-                
-
+                  </div>                
               
                 <div class="projects">
                   <h3>Pengalaman</h3>
@@ -127,13 +125,17 @@ if($status == 'user' || $status == 'admin'){
                           while($datak = mysqli_fetch_assoc($resk)){
                           ?>
                             <a href="">
-                              <p align="left">- <?=$datak['judul'];?></p>
+                              <p align="left">-<?=$datak['judul'];?></p>
                             </a>
                           <?php
                           $n += 1;
                           }
                           ?>
-                          <a href="layanan.php?id=<?=$id_akun;?>" style="color: black;"><p>Lebih lanjut...</p></a>
+                          
+                          <div class="social-media1">
+                                <a href="layanan.php?id=<?=$id_akun;?>"><p>Lebih lanjut...</p></a>        
+                          </div>
+                          
                       </div>
                       <div class="data">
                         <h4>Latar belakang pendidikan</h4>
@@ -159,11 +161,8 @@ if($status == 'user' || $status == 'admin'){
                   </div>
                 
                   <div class="social-media">
-                      <ul class="sosial-ul">
-                        <li><a href="formprofile.php?id=<?=$datap['id']?>"><p>edit</p></a></li>
-                        
-                    </ul>
-                </div>
+                      <a href="formprofile.php?id=<?=$id_akun;?>"><p>Edit</p></a>        
+                  </div>
               </div>
     </div>
 
