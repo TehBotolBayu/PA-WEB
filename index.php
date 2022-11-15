@@ -33,14 +33,6 @@ if($status == 'user' || $status == 'admin'){
                 <img src="asset/logo.png" width="50px">
                 <li><a href="freelancerpage.php">Find Freelancer</a></li>
                 <li><a href="offerjobspage.php">Discover Job</a></li>
-                <li class="dropdown">
-                    <a href="javascript:void(0)" class="dropbtn">Explore</a>
-                    <div class="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                    </div>
-                </li>
                 <?php
                 if($status == 'user' || $status == 'admin'){
                   echo "<li><a href='profil.php'>$user</a></li>
@@ -97,6 +89,7 @@ if($status == 'user' || $status == 'admin'){
                      $len = 1;
                      while ($data = mysqli_fetch_assoc($result)) { 
               ?>
+              <a href="desc.php?id=<?=$data['id']?>" style="text-decoration:none; color: black;">
               <div class="card">
                   <div class="card-header">
                     <img src="asset/<?=$data['gambar']?>" alt="rover" />
@@ -127,6 +120,7 @@ if($status == 'user' || $status == 'admin'){
                     </div>
                   </div>
               </div>
+              </a>
               <?php
               }
               ?>
@@ -189,24 +183,24 @@ if($status == 'user' || $status == 'admin'){
         <table>
             <tr >
                 <td class="box1"> 
-                    <h1>1. Lorem ipsum dolor sit quasi iure delectus et odit.</h1> 
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum quisquam ratione, mollitia ullam placeat iste.</p>            
+                    <h1>1. The best for every budget</h1> 
+                    <p>Temukan layanan berkualitas tinggi di setiap titik harga. Tidak ada tarif per jam, hanya harga berdasarkan proyek.</p>            
                 </td>
                 <td class="box2"> 
-                    <h1>2. Lorem, ipsum dolor.</h1> 
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum quisquam ratione, mollitia ullam placeat iste.</p>                         
+                    <h1>2. Quality work done quickly</h1> 
+                    <p>Temukan freelancer yang tepat untuk mulai mengerjakan proyek Anda dalam hitungan menit.</p>                         
                 </td>
                 <td class="box-gambar" rowspan="2"> <img src="asset/why1.png" alt="" width="500px">       
                 </td>
             </tr>
             <tr>
                 <td class="box3">
-                    <h1>3. Lorem, ipsum dolor.</h1> 
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum quisquam ratione, mollitia ullam placeat iste.</p>                         
+                    <h1>3. Protected payments, every time</h1> 
+                    <p>Selalu tahu apa yang akan Anda bayar di muka. Pembayaran Anda tidak akan dirilis sampai Anda menyetujui karya tersebut.</p>                         
                 </td>
                 <td class="box4">
-                    <h1>4. Lorem, ipsum dolor.</h1> 
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum quisquam ratione, mollitia ullam placeat iste.</p>                          
+                    <h1>4. 24/7 support</h1> 
+                    <p>Pertanyaan? Tim dukungan sepanjang waktu kami tersedia untuk membantu kapan saja, di mana saja.</p>                          
                 </td>
             </tr>
         </table>
@@ -227,7 +221,7 @@ if($status == 'user' || $status == 'admin'){
                         <img src="asset/buatakun2.jpeg" width="200px" height="200px" />
                         <div class="title">Pembuatan Akun</div>
                     </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi at mollitia laborum reiciendis itaque sint exercitationem expedita ipsam assumenda amet.</p>
+                    
                 </div>
 
                 <div class="kartu-tutor">
@@ -235,7 +229,7 @@ if($status == 'user' || $status == 'admin'){
                         <img src="asset/tawaran1.jpeg" width="200px" height="200px" />
                         <div class="title">Buat Tawaran</div>
                     </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi at mollitia laborum reiciendis itaque sint exercitationem expedita ipsam assumenda amet.</p>
+                    
                 </div>
 
                 <div class="kartu-tutor">
@@ -243,7 +237,7 @@ if($status == 'user' || $status == 'admin'){
                         <img src="asset/transaksi1.jpg" width="200px" height="200px" />
                         <div class="title">Buat Transaksi</div>
                     </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ex ut nostrum magnam quam numquam quidem quia tempora nisi. Odio?</p>
+                    
                 </div>
 
                 <div class="kartu-tutor">
@@ -251,7 +245,7 @@ if($status == 'user' || $status == 'admin'){
                         <img src="asset/dapatuang1.png" width="200px" height="200px" />
                         <div class="title">Dapat Uang</div>
                     </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores libero architecto nobis vero, doloribus nostrum quisquam est illum! Deleniti, officia.</p><br><br><br>
+                    
                 </div>
             </div>
         </div>
@@ -388,7 +382,7 @@ if($status == 'user' || $status == 'admin'){
             
             
             <hr>
-            <p>Copyright Kelompok 255ba9s PA WEB Informatika 2021</p>
+            <p>Copyright Kelompok 5 PA WEB Informatika 2021</p>
         </footer>
 
 

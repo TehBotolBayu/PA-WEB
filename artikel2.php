@@ -7,10 +7,6 @@ if(isset($_GET['id'])){
     $sql = "SELECT * FROM artikel WHERE id=$id";
     $result = mysqli_query($db, $sql);
     $data = mysqli_fetch_assoc($result);  
-    echo $data['judul'];
-    echo $data['isi'];
-    echo $data['tanggal'];
-    echo $data['gambar'];
 }
 
 ?>
@@ -32,8 +28,8 @@ if(isset($_GET['id'])){
         <img src="asset/logo.png" width="50px" class="logo">
         <h1>Workpedia</h1>
             <ul class="menu">
-                <li><a href="#home">Find Freelancer</a></li>
-                <li><a href="#news">Discover Job</a></li>
+                <li><a href="freelancerpage.php">Find Freelancer</a></li>
+                <li><a href="offerjobspage.php">Discover Job</a></li>
                 <li><a href="">Sign In</a></li>
                 <li><a href="">Join</a></li>
             </ul>
@@ -46,8 +42,12 @@ if(isset($_GET['id'])){
 
         <div class="content">
             <div class="textBox">
-                <h2 class="title1" id="title1"><br> <span></span></h2>
-                <p class="p1" id = "p1">
+                <h2 class="title"><?=$data['judul']?></h2>
+                <p class="date"><?=$data['tanggal']?></p>
+                <div class="image">
+                    <img src="asset/<?=$data['gambar']?>">
+                </div>
+                <p class="konten">
                     <?=$data['isi']?>
                 </p>
             </div>
@@ -55,6 +55,43 @@ if(isset($_GET['id'])){
 
         
     </section>
+    <hr>
+    <footer class='bawah'>
+          <div class="cont">
+          <div class="col">
+            <b>Kategori</b>
+            <p>Web Development</p>
+            <p>Graphic Design</p>
+            <p>Video Editing</p>
+            <p>Game Development</p>
+            <p>Music</p>
+          </div>
+          <div class="col">
+            <b>Tentang Kami</b>
+            <p>Email: bayuuabdur2903@gmail.com</p>
+            <p>Alamat: gg.Kasturi, Jl.M.Yamin, Samarinda</p>
+            <p>No. Telp: 082353386739</p>
+          </div>
+          <div class="col">
+            <b>Support</b>
+            <p>Help&Support</p>
+            <p>User Agreement</p>
+          </div>
+          <div class="col">
+            <b>Komunitas</b>
+            <p>Blog</p>
+            <p>Forum</p>
+          </div></div>
+
+          
+
+            
+            
+            
+            
+            <hr>
+            <p>Copyright Kelompok 5 PA WEB Informatika 2021</p>
+        </footer>
 
 
     <!-- BAGIAN JAVASCRIPT UNTUK MENJALANKAN FUNGSI ON CLICK -->

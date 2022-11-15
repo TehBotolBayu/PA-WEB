@@ -37,13 +37,13 @@ $data = mysqli_fetch_assoc($result);
     <header class="">
         <div class="title-back">
             <div class="title">
-                <h1 class="judul">CARI PEKERJAAN MU AGAR DAPAT CUAN!!!(SLOGAN)</h1>
+                <h1 class="judul"><hr></h1>
             </div>
         </div>
     </header>
     <div class="container">
         <div class="left-column">
-            <a><img src="asset/ibm.png" alt="" width="100px"></a>
+            <img src="asset/<?=$data['gambar']?>" alt="">
         </div>
 
         <div class="right-column">

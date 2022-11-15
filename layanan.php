@@ -3,7 +3,8 @@
 require "config.php";
 
 session_start();
-$id_akun = $_SESSION['id_akun'];
+$id_asli = $_SESSION['id_akun'];
+$id_akun = $_GET['id'];
 $status = $_SESSION['status'];
 
 $sql = "SELECT * FROM konten WHERE id_akun = '$id_akun' AND tipe = 'l'";
@@ -75,10 +76,16 @@ $res = mysqli_query($db, $sql);
                     <a href="" class="label-a">Rp.<?=$data['harga']?></a>
                 </div>
                 <br>
+                <?php
+                  if($id_asli == $id_akun){
+                  ?>
                 <div class="job-label">
                     <a href="formpenawaran.php?id=<?=$data['id']?>" class="label-c">Edit</a>
                     <a href="delete.php?id=<?=$data['id']?>&table=<?='konten'?>" class="label-b">Delete</a>
                 </div>
+                <?php
+                  }
+                ?>
             </div>
         </a>
     <?php

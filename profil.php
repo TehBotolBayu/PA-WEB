@@ -2,10 +2,14 @@
 
 session_start();
 $status = $_SESSION['status'];
+$id_asli = $_SESSION['id_akun'];
 $id_akun = $_SESSION['id_akun'];
 require "config.php";
-
+if(isset($_GET['id'])){
+  $id_akun = $_GET['id'];
+}
 if($status == 'user' || $status == 'admin'){
+
   $query = "SELECT * FROM akun WHERE id='$id_akun'";
   $profil = "SELECT * FROM profil WHERE id_akun = '$id_akun'";
 
@@ -75,12 +79,6 @@ if($status == 'user' || $status == 'admin'){
                   <br>
                   <p><?=$datap['tentang'];?></p>
                 </div>
-                <div class="rating">
-                  <h2><?=$datap['rating']?></h2>
-                  <br>
-                  <p>ada gambar bintang yang fungsinya bisa melihat rating kita dibintang berapa</p>
-                </div>
-
 
               </div>
 
@@ -92,20 +90,12 @@ if($status == 'user' || $status == 'admin'){
                               <h4>Email</h4>
                               <p><?=$email?></p>
                           </div>
-                          <div class="data">
-                            <h4>Nomor</h4>
-                              <p>9999-9999-9999</p>
-                        </div>
                       </div>
                   </div>
                 
                 <div class="projects">
                       <h3></h3>
                       <div class="projects_data">
-                          <div class="data">
-                              <h4>Lokasi</h4>
-                              <p>alamatmu cuy</p>
-                          </div>
                           <div class="data">
                             <h4>Bergabung sejak</h4>
                               <p><?=$datap['tanggal']?></p>
@@ -159,10 +149,15 @@ if($status == 'user' || $status == 'admin'){
                         </div>
                       </div>
                   </div>
-                
+                  <?php
+                  if($id_asli == $id_akun){
+                  ?>
                   <div class="social-media">
                       <a href="formprofile.php?id=<?=$id_akun;?>"><p>Edit</p></a>        
                   </div>
+                  <?php
+                  }
+                  ?>
               </div>
     </div>
 

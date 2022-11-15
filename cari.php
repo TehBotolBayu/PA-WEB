@@ -47,8 +47,8 @@ if(isset($_POST['cari'])){
             </ul>
         </header>
         <h1>
-          Result for
-        </h1>
+          Result for <?=$cari?>
+        </h1> 
 
 
         <h1 class="rekomendasi">Permintaan</h1>
@@ -163,7 +163,7 @@ if(isset($_POST['cari'])){
                 $re = mysqli_query($db, $q);
                 $datap = mysqli_fetch_assoc($re);
               ?>
-              <a href="#">
+              <a href="profil.php?id=<?=$data['id']?>">
                   <div class="job-card">
                       <div class="job-name">
                           <img class="job-profile" src="asset/<?=$datap['foto']?>" alt="">

@@ -81,35 +81,40 @@ header ul li a{
     background-color: #00C4B0;
 }
 
-/* BAGIAN KONTEN */
-p{
-    color: #333;
-    padding-top: 700px;
-    margin-right: 2000px;
+
+
+.textBox{
 }
-.content{
-    position: relative;
+
+.title{
+    text-align: left;
+    font-size: 80px;
+    margin-bottom: -20px;
+}
+
+.date{
+    text-align: right;
+}
+
+.image img{
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.content .textBox{
-    position: relative;
-    max-width: 600px;
-}
-.content .textBox h2 span{
-    color: #017143;
-    font-size: 1.2em;
-    font-weight: 900;
-}
-.content .textBox p{
-    color: #333;
-    padding-top: 700px;
-}
-.content .imgBox{
-    width: 800px;
-    display: flex;
+    height: 40vh;
 }
 
+.konten{
 
+}
+
+/*------------------footer---------------------*/
+.bawah .cont{
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 20px;
+  }
+  .cont .col{
+    width: 20%;
+    margin: 10px;
+  }
+  .bawah > p{
+    text-align: center;
+  }
