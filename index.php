@@ -51,7 +51,7 @@ if($status == 'user' || $status == 'admin'){
         <div class="hero">
             <div class="slogan">
                 <h1>WorkPedia</h1>
-                <h1>Ini Adalah Sebuah Slogan</h1>
+                <h1>Expand Your Opportunity</h1>
                 <div class="search-container">
                     <form action="cari.php" method="POST">
                       <input type="text" placeholder="Cari Freelancer" name="cari">
@@ -130,52 +130,52 @@ if($status == 'user' || $status == 'admin'){
         <hr color="">
         <h1 align="center">Popular</h1>
         <div id="popular">
-              <div class="destination desain">
+              <a href="cari2.php?cari=grafis" class="destination desain">
                 <div class="slide">
                   <div class="card">
                     <p>Desain Grafis</p>
                   </div>
                 </div>
-              </div>
+              </a>
 
-              <div class="destination web">
+              <a href="cari2.php?cari=web" class="destination web">
                 <div class="slide">
                   <div class="card">
                     <p>Web Development</p>
                   </div>
                 </div>
-              </div>
+            </a>
 
-              <div class="destination animasi">
+              <a href="cari2.php?cari=animasi" class="destination animasi">
                 <div class="slide">
                   <div class="card">
                     <p>Animasi</p>
                   </div>
                 </div>
-              </div>
-              <div class="destination triD">
+            </a>
+              <a href="cari2.php?cari=3D" class="destination triD">
                 <div class="slide">
                   <div class="card">
                     <p>3D Asset</p>
                   </div>
                 </div>
-              </div>
+            </a>
 
-              <div class="destination logo">
+              <a href="cari2.php?cari=logo" class="destination logo">
                 <div class="slide">
                   <div class="card">
                     <p>Desain Logo</p>
                   </div>
                 </div>
-              </div>
+            </a>
 
-              <div class="destination video">
+              <a href="cari2.php?cari=video" class="destination video">
                 <div class="slide">
                   <div class="card">
                     <p>Video Editing</p>
                   </div>
                 </div>
-              </div>
+            </a>
         </div>
 
         <div id="why">
@@ -258,40 +258,41 @@ if($status == 'user' || $status == 'admin'){
             </div>
             
             <div class="logo-list">
-                <div class="logo-find">
+
+                <a class="logo-find" href="cari2.php?cari=grafis">
                     <div class="logo-find-container a">
                         <img src="asset/logo-find6.png"/>
                         <div class="logo-find-text">Design Graphic</div>
                     </div>
-                </div>
+            </a>
 
-                <div class="logo-find">
+                <a class="logo-find" href="cari2.php?cari=web">
                     <div class="logo-find-container b">
                         <img src="asset/logo-find2.png"/>
                         <div class="logo-find-text">Web Development</div>
                     </div>
-                </div>
+            </a>
                 
-                <div class="logo-find">
+                <a class="logo-find" href="cari2.php?cari=video">
                     <div class="logo-find-container c">
                         <img src="asset/logo-find3.png"/>
                         <div class="logo-find-text">Video Editing</div>
                     </div>
-                </div>
+            </a>
 
-                <div class="logo-find">
+                <a class="logo-find" href="cari2.php?cari=game">
                     <div class="logo-find-container d">
                         <img src="asset/logo-find4.png"/>
                         <div class="logo-find-text">Game Development</div>
                     </div>
-                </div>
+            </a>
         
-                <div class="logo-find">
+                <a class="logo-find" href="cari2.php?cari=music">
                     <div class="logo-find-container e">
                         <img src="asset/logo-find5.png"/>
                         <div class="logo-find-text">Music Writing</div>
                     </div>
-                </div>
+            </a>
 
             </div>
 
@@ -302,7 +303,7 @@ if($status == 'user' || $status == 'admin'){
         <article id="News">
           <section class="newsintro">
             <br><br>
-            <h1 align="center">Temukan Ide Baru</h1>
+            <h1 align="center" style="margin-left: 40%; margin-top: 100px;">Temukan Ide Baru</h1>
             <br><br>
           </section>
           
