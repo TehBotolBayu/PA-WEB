@@ -1,10 +1,10 @@
 <?php
 error_reporting(0);
 
-$server = 'localhost';
-$username = 'root';
-$password = '';
-$db = 'paweb';
+$server = 'sql205.epizy.com';
+$username = 'epiz_32998354';
+$password = 'uD4pO3yK6Kqe';
+$db = 'epiz_32998354_paweb';
  
 $msg = "";
  

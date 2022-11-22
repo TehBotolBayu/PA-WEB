@@ -28,10 +28,8 @@ $data = mysqli_fetch_assoc($result);
         <img src="asset/logo.png" width="50px" class="logo">
         <h1>Workpedia</h1>
             <ul class="menu">
-                <li><a href="">Find Freelancer</a></li>
-                <li><a href="">Discover Job</a></li>
-                <li><a href="">Sign In</a></li>
-                <li><a href="">Join</a></li>
+                <li><a href="freelancerpage.php">Find Freelancer</a></li>
+                <li><a href="offerjobspage.php">Discover Job</a></li>
             </ul>
     </nav>
     <header class="">

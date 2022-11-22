@@ -23,14 +23,6 @@ if(isset($_POST['cari'])){
             <ul>
                 <img src="asset/logo.png" width="50px">
                 <li><a href="index.php">Home</a></li>
-                <li class="dropdown">
-                    <a href="javascript:void(0)" class="dropbtn">Explore</a>
-                    <div class="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                    </div>
-                </li>
                 <?php
                 if($status == 'user' || $status == 'admin'){
                   echo "<li><a href='profil.php'>$user</a></li>

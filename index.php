@@ -226,7 +226,7 @@ if($status == 'user' || $status == 'admin'){
 
                 <div class="kartu-tutor">
                     <div class="container">
-                        <img src="asset/tawaran1.jpeg" width="200px" height="200px" />
+                        <img src="https://ekrutassets.s3.ap-southeast-1.amazonaws.com/blogs/images/000/000/690/original/tips-terima-tawaran-kerja---EKRUT.jpg" width="200px" height="200px" />
                         <div class="title">Buat Tawaran</div>
                     </div>
                     
@@ -275,7 +275,7 @@ if($status == 'user' || $status == 'admin'){
                 
                 <a class="logo-find" href="cari2.php?cari=video">
                     <div class="logo-find-container c">
-                        <img src="asset/logo-find3.png"/>
+                        <img src="https://images.template.net/55569/Video-Editing-Promotion-Fiverr-Banner-Template-sm-1611300508653-555690.jpeg"/>
                         <div class="logo-find-text">Video Editing</div>
                     </div>
             </a>
